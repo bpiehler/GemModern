@@ -1,12 +1,11 @@
 import Poco from "commodetto/Poco";
 
-console.log("--- MODERN CLASSIC FINAL ---");
-
 const render = new Poco(screen);
-const font = new render.Font("Bitham-Black", 30);
-const smallFont = new render.Font("Gothic-14", 14);
+// Use common system fonts
+const font = new render.Font("Bitham-Bold", 42); 
+const smallFont = new render.Font("Gothic-Bold", 18);
 
-// Default configuration
+// Default intended design colors
 let config = {
     bgColor: render.makeColor(0, 0, 0),
     dialColor: render.makeColor(85, 85, 85),
@@ -15,16 +14,13 @@ let config = {
     minuteHandColor: render.makeColor(170, 170, 170)
 };
 
-let batteryLevel = 1.0;
+let batteryLevel = 100; 
 
-// Setup Battery
-if (navigator.getBattery) {
-    navigator.getBattery().then(battery => {
-        batteryLevel = battery.level;
-        battery.onlevelchange = () => {
-            batteryLevel = battery.level;
-            draw();
-        };
+if (typeof watch !== 'undefined' && watch.battery) {
+    batteryLevel = watch.battery.level;
+    watch.addEventListener('battery', (level) => {
+        batteryLevel = level;
+        draw();
     });
 }
 
@@ -54,7 +50,6 @@ function fillCircle(color, xc, yc, r) {
     }
 }
 
-// Bresenham line
 function drawLine(color, x0, y0, x1, y1, thickness) {
     const dx = Math.abs(x1 - x0);
     const dy = Math.abs(y1 - y0);
@@ -97,27 +92,28 @@ function draw() {
         // Tick marks
         for (let i = 1; i <= 12; i++) {
             const angle = (i * 30) * (Math.PI / 180);
-            const x1 = Math.round(cx + (radius - 10) * Math.sin(angle));
-            const y1 = Math.round(cy - (radius - 10) * Math.cos(angle));
+            const x1 = Math.round(cx + (radius - 15) * Math.sin(angle));
+            const y1 = Math.round(cy - (radius - 15) * Math.cos(angle));
             const x2 = Math.round(cx + radius * Math.sin(angle));
             const y2 = Math.round(cy - radius * Math.cos(angle));
-            drawLine(config.numberColor, x1, y1, x2, y2, 2);
+            drawLine(config.numberColor, x1, y1, x2, y2, 3);
         }
 
-        // Date
+        // Date display
         const dateStr = now.toDateString().split(' ').slice(1, 3).join(' '); 
         const dw = render.getTextWidth(dateStr, smallFont);
         render.drawText(dateStr, smallFont, config.numberColor, cx - dw / 2, cy - radius / 2);
 
-        // Battery
-        let batColor = render.makeColor(0, 255, 0);
-        if (batteryLevel < 0.2) batColor = render.makeColor(255, 0, 0);
-        else if (batteryLevel < 0.5) batColor = render.makeColor(255, 255, 0);
+        // Battery Complication
+        let batColor = render.makeColor(0, 255, 0); // Green
+        if (batteryLevel < 20) batColor = render.makeColor(255, 0, 0); // Red
+        else if (batteryLevel < 50) batColor = render.makeColor(255, 255, 0); // Yellow
         
         const bx = Math.round(cx + radius / 2.5);
-        fillCircle(batColor, bx, cy, 18);
-        const batText = Math.round(batteryLevel * 100) + "%";
+        fillCircle(batColor, bx, cy, 20);
+        const batText = Math.round(batteryLevel) + "%";
         const bw = render.getTextWidth(batText, smallFont);
+        // Use black (bgColor) for text on the battery circle for contrast
         render.drawText(batText, smallFont, config.bgColor, bx - bw / 2, cy - smallFont.height / 2);
 
         // Hands
@@ -129,11 +125,11 @@ function draw() {
         const hx = Math.round(cx + (radius * 0.5) * Math.sin(hourAngle));
         const hy = Math.round(cy - (radius * 0.5) * Math.cos(hourAngle));
 
-        drawLine(config.hourHandColor, cx, cy, hx, hy, 5);
-        drawLine(config.minuteHandColor, cx, cy, mx, my, 3);
+        drawLine(config.hourHandColor, cx, cy, hx, hy, 6);
+        drawLine(config.minuteHandColor, cx, cy, mx, my, 4);
 
         // Center Pin
-        fillCircle(config.numberColor, cx, cy, 6);
+        fillCircle(config.numberColor, cx, cy, 8);
 
         render.end();
     } catch (e) {
