@@ -1,0 +1,49 @@
+[
+  {
+    "type": "heading",
+    "defaultValue": "Modern Classic Settings"
+  },
+  {
+    "type": "section",
+    "items": [
+      {
+        "type": "heading",
+        "defaultValue": "Colors"
+      },
+      {
+        "type": "color",
+        "messageKey": "bgColor",
+        "defaultValue": "000000",
+        "label": "Background Color"
+      },
+      {
+        "type": "color",
+        "messageKey": "dialColor",
+        "defaultValue": "555555",
+        "label": "Dial Color"
+      },
+      {
+        "type": "color",
+        "messageKey": "numberColor",
+        "defaultValue": "FFFFFF",
+        "label": "Number/Tick Color"
+      },
+      {
+        "type": "color",
+        "messageKey": "hourHandColor",
+        "defaultValue": "FFFFFF",
+        "label": "Hour Hand Color"
+      },
+      {
+        "type": "color",
+        "messageKey": "minuteHandColor",
+        "defaultValue": "AAAAAA",
+        "label": "Minute Hand Color"
+      }
+    ]
+  },
+  {
+    "type": "submit",
+    "defaultValue": "Save Settings"
+  }
+]

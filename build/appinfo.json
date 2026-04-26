@@ -1,0 +1,39 @@
+{
+    "displayName": "watchface",
+    "uuid": "e3ea6eb7-0713-4002-9e38-3170c2988567",
+    "projectType": "moddable",
+    "sdkVersion": "3",
+    "enableMultiJS": true,
+    "targetPlatforms": [
+        "emery",
+        "gabbro"
+    ],
+    "watchapp": {
+        "watchface": true
+    },
+    "messageKeys": {
+        "bgColor": 0,
+        "dialColor": 1,
+        "numberColor": 2,
+        "hourHandColor": 3,
+        "minuteHandColor": 4
+    },
+    "resources": {
+        "media": []
+    },
+    "name": "watchface",
+    "shortName": "watchface",
+    "longName": "watchface",
+    "versionLabel": "1.0",
+    "companyName": "MakeAwesomeHappen",
+    "appKeys": {
+        "bgColor": 0,
+        "dialColor": 1,
+        "numberColor": 2,
+        "hourHandColor": 3,
+        "minuteHandColor": 4
+    },
+    "capabilities": [
+        "configurable"
+    ]
+}

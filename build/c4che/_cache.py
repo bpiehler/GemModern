@@ -1,0 +1,27 @@
+BINDIR = '/usr/local/bin'
+BLOCK_MESSAGE_KEYS = []
+BUILD_TYPE = 'moddable'
+BUNDLE_NAME = 'watchface.pbw'
+DEFINES = ['RELEASE']
+LIBDIR = '/usr/local/lib'
+LIB_DIR = 'node_modules'
+LIB_JSON = [{'name': '@rebble/clay', 'version': '1.0.8', 'description': 'Pebble Config Framework', 'scripts': {'test-travis': './node_modules/.bin/gulp && ./node_modules/.bin/karma start ./test/karma.conf.js --single-run --browsers chromeTravisCI', 'test-debug': '(export DEBUG=true && ./node_modules/.bin/gulp && ./node_modules/.bin/karma start ./test/karma.conf.js --no-single-run)', 'test': './node_modules/.bin/gulp && ./node_modules/.bin/karma start ./test/karma.conf.js --single-run', 'lint': './node_modules/.bin/eslint ./', 'build': 'gulp', 'dev': 'gulp dev', 'pebble-clean': 'rm -rf tmp src/js/index.js && pebble clean', 'pebble-publish': 'npm run pebble-clean && npm run build && pebble build && pebble package publish && npm run pebble-clean', 'pebble-build': 'npm run build && pebble build'}, 'repository': {'type': 'git', 'url': 'git+https://github.com/pebble-dev/clay.git'}, 'keywords': ['pebble', 'config', 'configuration', 'pebble-package'], 'author': 'Pebble Technology', 'license': 'MIT', 'bugs': {'url': 'https://github.com/pebble-dev/clay/issues'}, 'pebble': {'projectType': 'package', 'sdkVersion': '3', 'targetPlatforms': ['aplite', 'basalt', 'chalk', 'diorite', 'emery', 'flint', 'gabbro'], 'resources': {'media': []}, 'capabilities': ['configurable']}, 'homepage': 'https://github.com/pebble-dev/clay#readme', 'devDependencies': {'autoprefixer': '^10.4.23', 'bourbon': '^4.2.6', 'browserify': '^13.0.0', 'browserify-istanbul': '^3.0.1', 'chai': '^3.4.1', 'deamdify': '^0.2.0', 'deepcopy': '^0.6.1', 'del': '^2.0.2', 'eslint': '^1.5.1', 'eslint-config-pebble': '^1.2.0', 'eslint-plugin-standard': '^1.3.1', 'gulp': '^5.0.1', 'gulp-autoprefixer': '^3.1.0', 'gulp-htmlmin': '^1.3.0', 'gulp-inline': '^0.1.3', 'gulp-insert': '^0.5.0', 'gulp-sass': '^6.0.1', 'gulp-sourcemaps': '^1.6.0', 'gulp-uglify': '^1.5.2', 'joi': '^6.10.1', 'karma': '^6.4.0', 'karma-browserify': '^8.1.0', 'karma-chrome-launcher': '^3.2.0', 'karma-coverage': '^2.2.1', 'karma-mocha': '^2.0.1', 'karma-mocha-reporter': '^2.2.5', 'karma-source-map-support': '^1.4.0', 'karma-threshold-reporter': '^0.1.15', 'mocha': '^11.7.5', 'postcss': '^8.5.6', 'require-from-string': '^2.0.2', 'sass': '^1.94.2', 'sinon': '^1.17.3', 'stringify': '^3.2.0', 'through': '^2.3.8', 'tosource': '^1.0.0', 'vinyl-buffer': '^1.0.0', 'vinyl-source-stream': '^2.0.0', 'watchify': '^3.11.1'}, 'path': 'node_modules/@rebble/clay/dist', 'js_paths': ['node_modules/@rebble/clay/dist/js/index.js']}]
+LIB_RESOURCES_JSON = {'@rebble/clay': []}
+MESSAGE_KEYS = {'bgColor': 0, 'dialColor': 1, 'numberColor': 2, 'hourHandColor': 3, 'minuteHandColor': 4}
+MESSAGE_KEYS_DEFINITION = '/home/brittp/ModernClassicGemini/watchface/build/src/message_keys.auto.c'
+MESSAGE_KEYS_HEADER = '/home/brittp/ModernClassicGemini/watchface/build/include/message_keys.auto.h'
+MESSAGE_KEYS_JSON = '/home/brittp/ModernClassicGemini/watchface/build/js/message_keys.json'
+NODE_PATH = '/home/brittp/.pebble-sdk/SDKs/current/node_modules'
+PEBBLE_SDK_COMMON = '/home/brittp/.pebble-sdk/SDKs/current/sdk-core/pebble/common'
+PEBBLE_SDK_ROOT = '/home/brittp/.pebble-sdk/SDKs/current/sdk-core/pebble'
+PREFIX = '/usr/local'
+PROJECT_INFO = {'displayName': 'watchface', 'uuid': 'e3ea6eb7-0713-4002-9e38-3170c2988567', 'projectType': 'moddable', 'sdkVersion': '3', 'enableMultiJS': True, 'targetPlatforms': ['emery', 'gabbro'], 'watchapp': {'watchface': True}, 'messageKeys': {'bgColor': 0, 'dialColor': 1, 'numberColor': 2, 'hourHandColor': 3, 'minuteHandColor': 4}, 'resources': {'media': []}, 'name': 'watchface', 'shortName': 'watchface', 'longName': 'watchface', 'versionLabel': '1.0', 'companyName': 'MakeAwesomeHappen', 'appKeys': {'bgColor': 0, 'dialColor': 1, 'numberColor': 2, 'hourHandColor': 3, 'minuteHandColor': 4}}
+REQUESTED_PLATFORMS = ['emery', 'gabbro']
+RESOURCES_JSON = []
+SANDBOX = False
+SUPPORTED_PLATFORMS = ['diorite', 'aplite', 'basalt', 'gabbro', 'emery', 'chalk', 'flint']
+TARGET_PLATFORMS = ['gabbro', 'emery']
+TIMESTAMP = 1777228737
+USE_GROUPS = True
+VERBOSE = 0
+WEBPACK = ['/home/brittp/.pebble-sdk/SDKs/current/node_modules/.bin/webpack']

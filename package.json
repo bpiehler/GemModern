@@ -2,9 +2,13 @@
   "name": "watchface",
   "author": "MakeAwesomeHappen",
   "version": "1.0.0",
-  "keywords": ["pebble-app"],
+  "keywords": [
+    "pebble-app"
+  ],
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@rebble/clay": "^1.0.8"
+  },
   "pebble": {
     "displayName": "watchface",
     "uuid": "e3ea6eb7-0713-4002-9e38-3170c2988567",
@@ -18,9 +22,13 @@
     "watchapp": {
       "watchface": true
     },
-    "messageKeys": [
-      "dummy"
-    ],
+    "messageKeys": {
+      "bgColor": 0,
+      "dialColor": 1,
+      "numberColor": 2,
+      "hourHandColor": 3,
+      "minuteHandColor": 4
+    },
     "resources": {
       "media": []
     }
